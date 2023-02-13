@@ -40,6 +40,7 @@
         <script src="data/Wayanad10_4.js"></script>
         <script src="data/Ernakulam_5.js"></script>
         <script src="data/Tvm_6.js"></script>
+        <script src="data/Palakkad_7.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -2307,6 +2308,436 @@
         });
         bounds_group.addLayer(layer_Tvm_6);
         map.addLayer(layer_Tvm_6);
+        function pop_Palakkad_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">School Code</th>\
+                        <td>' + (feature.properties['School Code'] !== null ? autolinker.link(feature.properties['School Code'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HSS Code</th>\
+                        <td>' + (feature.properties['HSS Code'] !== null ? autolinker.link(feature.properties['HSS Code'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">VHSE Code</th>\
+                        <td>' + (feature.properties['VHSE Code'] !== null ? autolinker.link(feature.properties['VHSE Code'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">School Name</th>\
+                        <td>' + (feature.properties['School Name'] !== null ? autolinker.link(feature.properties['School Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">School Type</th>\
+                        <td>' + (feature.properties['School Type'] !== null ? autolinker.link(feature.properties['School Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">School Level</th>\
+                        <td>' + (feature.properties['School Level'] !== null ? autolinker.link(feature.properties['School Level'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">School Address</th>\
+                        <td>' + (feature.properties['School Address'] !== null ? autolinker.link(feature.properties['School Address'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HS Section Phone</th>\
+                        <td>' + (feature.properties['HS Section Phone'] !== null ? autolinker.link(feature.properties['HS Section Phone'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HS Section Email</th>\
+                        <td>' + (feature.properties['HS Section Email'] !== null ? autolinker.link(feature.properties['HS Section Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">field_10</th>\
+                        <td>' + (feature.properties['field_10'] !== null ? autolinker.link(feature.properties['field_10'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HSE Section Phone</th>\
+                        <td>' + (feature.properties['HSE Section Phone'] !== null ? autolinker.link(feature.properties['HSE Section Phone'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HSE Section Email</th>\
+                        <td>' + (feature.properties['HSE Section Email'] !== null ? autolinker.link(feature.properties['HSE Section Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">UDISE Code</th>\
+                        <td>' + (feature.properties['UDISE Code'] !== null ? autolinker.link(feature.properties['UDISE Code'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Panchayat/ Municipality/ Corporation</th>\
+                        <td>' + (feature.properties['Panchayat/ Municipality/ Corporation'] !== null ? autolinker.link(feature.properties['Panchayat/ Municipality/ Corporation'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Assembly Constituency</th>\
+                        <td>' + (feature.properties['Assembly Constituency'] !== null ? autolinker.link(feature.properties['Assembly Constituency'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Revenue District</th>\
+                        <td>' + (feature.properties['Revenue District'] !== null ? autolinker.link(feature.properties['Revenue District'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Education District</th>\
+                        <td>' + (feature.properties['Education District'] !== null ? autolinker.link(feature.properties['Education District'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sub District</th>\
+                        <td>' + (feature.properties['Sub District'] !== null ? autolinker.link(feature.properties['Sub District'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PIN Code</th>\
+                        <td>' + (feature.properties['PIN Code'] !== null ? autolinker.link(feature.properties['PIN Code'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Parliament Constituency</th>\
+                        <td>' + (feature.properties['Parliament Constituency'] !== null ? autolinker.link(feature.properties['Parliament Constituency'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Is Hilly Area</th>\
+                        <td>' + (feature.properties['Is Hilly Area'] !== null ? autolinker.link(feature.properties['Is Hilly Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Is Coastal Area</th>\
+                        <td>' + (feature.properties['Is Coastal Area'] !== null ? autolinker.link(feature.properties['Is Coastal Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">School Established Year</th>\
+                        <td>' + (feature.properties['School Established Year'] !== null ? autolinker.link(feature.properties['School Established Year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HSE Start Year</th>\
+                        <td>' + (feature.properties['HSE Start Year'] !== null ? autolinker.link(feature.properties['HSE Start Year'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total Area (Acre)</th>\
+                        <td>' + (feature.properties['Total Area (Acre)'] !== null ? autolinker.link(feature.properties['Total Area (Acre)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Survey Number(s)</th>\
+                        <td>' + (feature.properties['Survey Number(s)'] !== null ? autolinker.link(feature.properties['Survey Number(s)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Land Obtained for Establishing School</th>\
+                        <td>' + (feature.properties['Land Obtained for Establishing School'] !== null ? autolinker.link(feature.properties['Land Obtained for Establishing School'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Location Link</th>\
+                        <td>' + (feature.properties['Location Link'] !== null ? autolinker.link(feature.properties['Location Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lat</th>\
+                        <td>' + (feature.properties['Lat'] !== null ? autolinker.link(feature.properties['Lat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Long</th>\
+                        <td>' + (feature.properties['Long'] !== null ? autolinker.link(feature.properties['Long'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Land Protected by</th>\
+                        <td>' + (feature.properties['Land Protected by'] !== null ? autolinker.link(feature.properties['Land Protected by'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Building Type</th>\
+                        <td>' + (feature.properties['Building Type'] !== null ? autolinker.link(feature.properties['Building Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Building Plinth Area</th>\
+                        <td>' + (feature.properties['Building Plinth Area'] !== null ? autolinker.link(feature.properties['Building Plinth Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Building Ownership</th>\
+                        <td>' + (feature.properties['Building Ownership'] !== null ? autolinker.link(feature.properties['Building Ownership'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Library</th>\
+                        <td>' + (feature.properties['Library'] !== null ? autolinker.link(feature.properties['Library'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Electrification</th>\
+                        <td>' + (feature.properties['Electrification'] !== null ? autolinker.link(feature.properties['Electrification'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Solar Power</th>\
+                        <td>' + (feature.properties['Solar Power'] !== null ? autolinker.link(feature.properties['Solar Power'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Drinking Water</th>\
+                        <td>' + (feature.properties['Drinking Water'] !== null ? autolinker.link(feature.properties['Drinking Water'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Net Connectivity</th>\
+                        <td>' + (feature.properties['Net Connectivity'] !== null ? autolinker.link(feature.properties['Net Connectivity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total Class Room</th>\
+                        <td>' + (feature.properties['Total Class Room'] !== null ? autolinker.link(feature.properties['Total Class Room'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Multi Media Room</th>\
+                        <td>' + (feature.properties['Multi Media Room'] !== null ? autolinker.link(feature.properties['Multi Media Room'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total Smart Class Room</th>\
+                        <td>' + (feature.properties['Total Smart Class Room'] !== null ? autolinker.link(feature.properties['Total Smart Class Room'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Little KITES</th>\
+                        <td>' + (feature.properties['Little KITES'] !== null ? autolinker.link(feature.properties['Little KITES'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total Staff Room</th>\
+                        <td>' + (feature.properties['Total Staff Room'] !== null ? autolinker.link(feature.properties['Total Staff Room'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Computer Lab</th>\
+                        <td>' + (feature.properties['Computer Lab'] !== null ? autolinker.link(feature.properties['Computer Lab'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Science Lab</th>\
+                        <td>' + (feature.properties['Science Lab'] !== null ? autolinker.link(feature.properties['Science Lab'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total no.of Computers Available in the School</th>\
+                        <td>' + (feature.properties['Total no.of Computers Available in the School'] !== null ? autolinker.link(feature.properties['Total no.of Computers Available in the School'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Total no.of Printers Available in the School</th>\
+                        <td>' + (feature.properties['Total no.of Printers Available in the School'] !== null ? autolinker.link(feature.properties['Total no.of Printers Available in the School'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">First Aid Room</th>\
+                        <td>' + (feature.properties['First Aid Room'] !== null ? autolinker.link(feature.properties['First Aid Room'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Public Addressing system</th>\
+                        <td>' + (feature.properties['Public Addressing system'] !== null ? autolinker.link(feature.properties['Public Addressing system'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kitchen</th>\
+                        <td>' + (feature.properties['Kitchen'] !== null ? autolinker.link(feature.properties['Kitchen'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CCTV</th>\
+                        <td>' + (feature.properties['CCTV'] !== null ? autolinker.link(feature.properties['CCTV'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Store (Book/Stationary)</th>\
+                        <td>' + (feature.properties['Store (Book/Stationary)'] !== null ? autolinker.link(feature.properties['Store (Book/Stationary)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TV Hall</th>\
+                        <td>' + (feature.properties['TV Hall'] !== null ? autolinker.link(feature.properties['TV Hall'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Canteen</th>\
+                        <td>' + (feature.properties['Canteen'] !== null ? autolinker.link(feature.properties['Canteen'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Rainwater Harvesting</th>\
+                        <td>' + (feature.properties['Rainwater Harvesting'] !== null ? autolinker.link(feature.properties['Rainwater Harvesting'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Play Ground</th>\
+                        <td>' + (feature.properties['Play Ground'] !== null ? autolinker.link(feature.properties['Play Ground'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Waste Management System</th>\
+                        <td>' + (feature.properties['Waste Management System'] !== null ? autolinker.link(feature.properties['Waste Management System'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Autism Park</th>\
+                        <td>' + (feature.properties['Autism Park'] !== null ? autolinker.link(feature.properties['Autism Park'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Dining Hall</th>\
+                        <td>' + (feature.properties['Dining Hall'] !== null ? autolinker.link(feature.properties['Dining Hall'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Auditorium</th>\
+                        <td>' + (feature.properties['Auditorium'] !== null ? autolinker.link(feature.properties['Auditorium'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Indoor Stadium</th>\
+                        <td>' + (feature.properties['Indoor Stadium'] !== null ? autolinker.link(feature.properties['Indoor Stadium'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Students Police</th>\
+                        <td>' + (feature.properties['Students Police'] !== null ? autolinker.link(feature.properties['Students Police'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Music Class Room</th>\
+                        <td>' + (feature.properties['Music Class Room'] !== null ? autolinker.link(feature.properties['Music Class Room'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Activities</th>\
+                        <td>' + (feature.properties['Activities'] !== null ? autolinker.link(feature.properties['Activities'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Agricultural Activity</th>\
+                        <td>' + (feature.properties['Agricultural Activity'] !== null ? autolinker.link(feature.properties['Agricultural Activity'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Toilet</th>\
+                        <td>' + (feature.properties['Toilet'] !== null ? autolinker.link(feature.properties['Toilet'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">She Toilet</th>\
+                        <td>' + (feature.properties['She Toilet'] !== null ? autolinker.link(feature.properties['She Toilet'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">No. of Toilets for Boys</th>\
+                        <td>' + (feature.properties['No. of Toilets for Boys'] !== null ? autolinker.link(feature.properties['No. of Toilets for Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">No. of Toilets for Girls</th>\
+                        <td>' + (feature.properties['No. of Toilets for Girls'] !== null ? autolinker.link(feature.properties['No. of Toilets for Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">No. of Urinals for Boys</th>\
+                        <td>' + (feature.properties['No. of Urinals for Boys'] !== null ? autolinker.link(feature.properties['No. of Urinals for Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">No. of Urinals for Girls</th>\
+                        <td>' + (feature.properties['No. of Urinals for Girls'] !== null ? autolinker.link(feature.properties['No. of Urinals for Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Parking Space</th>\
+                        <td>' + (feature.properties['Parking Space'] !== null ? autolinker.link(feature.properties['Parking Space'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Garden</th>\
+                        <td>' + (feature.properties['Garden'] !== null ? autolinker.link(feature.properties['Garden'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Transportation</th>\
+                        <td>' + (feature.properties['Transportation'] !== null ? autolinker.link(feature.properties['Transportation'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Hostel Facility</th>\
+                        <td>' + (feature.properties['Hostel Facility'] !== null ? autolinker.link(feature.properties['Hostel Facility'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bio-Gas</th>\
+                        <td>' + (feature.properties['Bio-Gas'] !== null ? autolinker.link(feature.properties['Bio-Gas'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Incinerator Facility</th>\
+                        <td>' + (feature.properties['Incinerator Facility'] !== null ? autolinker.link(feature.properties['Incinerator Facility'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HM_Name</th>\
+                        <td>' + (feature.properties['HM_Name'] !== null ? autolinker.link(feature.properties['HM_Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Principal_name</th>\
+                        <td>' + (feature.properties['Principal_name'] !== null ? autolinker.link(feature.properties['Principal_name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Malayalam_Med_Boys</th>\
+                        <td>' + (feature.properties['Malayalam_Med_Boys'] !== null ? autolinker.link(feature.properties['Malayalam_Med_Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Malayalam_Med_Girls</th>\
+                        <td>' + (feature.properties['Malayalam_Med_Girls'] !== null ? autolinker.link(feature.properties['Malayalam_Med_Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Malayalam_Med_Total</th>\
+                        <td>' + (feature.properties['Malayalam_Med_Total'] !== null ? autolinker.link(feature.properties['Malayalam_Med_Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">English_Med_Boys</th>\
+                        <td>' + (feature.properties['English_Med_Boys'] !== null ? autolinker.link(feature.properties['English_Med_Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">English_Med_Girls</th>\
+                        <td>' + (feature.properties['English_Med_Girls'] !== null ? autolinker.link(feature.properties['English_Med_Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">English_Med_Total</th>\
+                        <td>' + (feature.properties['English_Med_Total'] !== null ? autolinker.link(feature.properties['English_Med_Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tamil_Med_Boys</th>\
+                        <td>' + (feature.properties['Tamil_Med_Boys'] !== null ? autolinker.link(feature.properties['Tamil_Med_Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tamil_Med_Girls</th>\
+                        <td>' + (feature.properties['Tamil_Med_Girls'] !== null ? autolinker.link(feature.properties['Tamil_Med_Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tamil_Med_Total</th>\
+                        <td>' + (feature.properties['Tamil_Med_Total'] !== null ? autolinker.link(feature.properties['Tamil_Med_Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kannada_Med_Boys</th>\
+                        <td>' + (feature.properties['Kannada_Med_Boys'] !== null ? autolinker.link(feature.properties['Kannada_Med_Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kannada_Med_Girls</th>\
+                        <td>' + (feature.properties['Kannada_Med_Girls'] !== null ? autolinker.link(feature.properties['Kannada_Med_Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kannada_Med_Total</th>\
+                        <td>' + (feature.properties['Kannada_Med_Total'] !== null ? autolinker.link(feature.properties['Kannada_Med_Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">All_Boys</th>\
+                        <td>' + (feature.properties['All_Boys'] !== null ? autolinker.link(feature.properties['All_Boys'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">All_Girls</th>\
+                        <td>' + (feature.properties['All_Girls'] !== null ? autolinker.link(feature.properties['All_Girls'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">All_Med_Total</th>\
+                        <td>' + (feature.properties['All_Med_Total'] !== null ? autolinker.link(feature.properties['All_Med_Total'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Palakkad_7_0() {
+            return {
+                pane: 'pane_Palakkad_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(232,113,141,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Palakkad_7');
+        map.getPane('pane_Palakkad_7').style.zIndex = 407;
+        map.getPane('pane_Palakkad_7').style['mix-blend-mode'] = 'normal';
+        var layer_Palakkad_7 = new L.geoJson(json_Palakkad_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Palakkad_7',
+            layerName: 'layer_Palakkad_7',
+            pane: 'pane_Palakkad_7',
+            onEachFeature: pop_Palakkad_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Palakkad_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Palakkad_7);
+        map.addLayer(layer_Palakkad_7);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
