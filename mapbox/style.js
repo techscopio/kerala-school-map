@@ -62,14 +62,14 @@ var styleJSON = {
             "data": json_Pathanamthitta_10
         }
                     ,
-        "Alappuzha_11": {
+        "Idukki_11": {
             "type": "geojson",
-            "data": json_Alappuzha_11
+            "data": json_Idukki_11
         }
                     ,
-        "Idukki_12": {
+        "Alappuzha_12": {
             "type": "geojson",
-            "data": json_Idukki_12
+            "data": json_Alappuzha_12
         }
                     ,
         "Malapuram_13": {
@@ -80,6 +80,11 @@ var styleJSON = {
         "Thrissur_14": {
             "type": "geojson",
             "data": json_Thrissur_14
+        }
+                    ,
+        "Kozhikode_15": {
+            "type": "geojson",
+            "data": json_Kozhikode_15
         }
                     },
     "sprite": "",
@@ -179,19 +184,19 @@ var styleJSON = {
         }
 ,
         {
-            "id": "lyr_Alappuzha_11_0",
+            "id": "lyr_Idukki_11_0",
             "type": "circle",
-            "source": "Alappuzha_11",
+            "source": "Idukki_11",
             "layout": {},
-            "paint": {'circle-radius': ['/', 7.142857142857142, 2], 'circle-color': '#df26dc', 'circle-opacity': 1.0, 'circle-stroke-width': 1, 'circle-stroke-color': '#232323'}
+            "paint": {'circle-radius': ['/', 7.142857142857142, 2], 'circle-color': '#ff9d09', 'circle-opacity': 1.0, 'circle-stroke-width': 1, 'circle-stroke-color': '#232323'}
         }
 ,
         {
-            "id": "lyr_Idukki_12_0",
+            "id": "lyr_Alappuzha_12_0",
             "type": "circle",
-            "source": "Idukki_12",
+            "source": "Alappuzha_12",
             "layout": {},
-            "paint": {'circle-radius': ['/', 7.142857142857142, 2], 'circle-color': '#729b6f', 'circle-opacity': 1.0, 'circle-stroke-width': 1, 'circle-stroke-color': '#232323'}
+            "paint": {'circle-radius': ['/', 7.142857142857142, 2], 'circle-color': '#becf50', 'circle-opacity': 1.0, 'circle-stroke-width': 1, 'circle-stroke-color': '#232323'}
         }
 ,
         {
@@ -208,6 +213,14 @@ var styleJSON = {
             "source": "Thrissur_14",
             "layout": {},
             "paint": {'circle-radius': ['/', 7.142857142857142, 2], 'circle-color': '#beb297', 'circle-opacity': 1.0, 'circle-stroke-width': 1, 'circle-stroke-color': '#232323'}
+        }
+,
+        {
+            "id": "lyr_Kozhikode_15_0",
+            "type": "circle",
+            "source": "Kozhikode_15",
+            "layout": {},
+            "paint": {'circle-radius': ['/', 7.142857142857142, 2], 'circle-color': '#becf50', 'circle-opacity': 1.0, 'circle-stroke-width': 1, 'circle-stroke-color': '#232323'}
         }
 ],
 }
